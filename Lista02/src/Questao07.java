@@ -1,25 +1,51 @@
+import java.util.ArrayList;
 import java.util.Scanner;
-import java.lang.Math;
 public class Questao07 {
 
 	public static void main(String[] args) {
-	
-		//   1   2   3   4   5   6   7
+		//Uma implementacao do Crivo de Eratóstenes para encontrar numeros primos
 		
-		int numPrimo=2;		int i; 
+		Scanner scan = new Scanner(System.in);
+		int numLimite;
+		int numPrimo=0;
+		boolean isPrimo = true;
+		ArrayList<Integer> numCheck = new ArrayList<Integer>();
 		
-		for(numPrimo=2; numPrimo<=1000 ;numPrimo++) {
-			
-			if(numPrimo%2!=0 || numPrimo==2)
-				if(numPrimo%3!=0 || numPrimo==3)
-					if(numPrimo%5!=0 || numPrimo==5)
-						if(numPrimo%7!=0 || numPrimo==7)
-							if(numPrimo%11!=0 || numPrimo==11)
-								System.out.print(numPrimo + "  ");
-			
+		System.out.print("Insira o numero limite: ");
+		numLimite = Integer.parseInt(scan.nextLine());
 		
+		for(int i = 2; i*i<=numLimite; i++) {
+			numCheck.add(i); //faz um array com todos os numeros menores que a raiz quadrada do numero limite
+		}
+		
+		for(int i=0; i<numCheck.size(); i++) {
+		
+			for(int j=0; j<numCheck.size(); j++) {
+				if(numCheck.get(j)%numCheck.get(i)==0 && numCheck.get(j)!=numCheck.get(i))
+					numCheck.remove(j); //remove todos os outros numeros que sao multiplos de outros numeros anteriores
+			}
 			
 		}
+		
+		for(int i = 2; i<=numLimite; i++) {
+			
+			for(int j=0; j<numCheck.size() && isPrimo!=false; j++) {
+				if(i%numCheck.get(j)==0 && i!=numCheck.get(j)) {
+					isPrimo=false;
+					
+				}
+			}
+			
+			if(isPrimo==true) {
+				numPrimo=i;
+			}
+			isPrimo=true;
+			//divide os numeros pela o array gerado anteriormente e caso ele não seja divisivel por nenhum deles, o numero sera primo
+		}
+
+		System.out.println("O maior numero primo menor que o inserido acima eh: " + numPrimo);
+	
+		scan.close();
 	}
 
 }
