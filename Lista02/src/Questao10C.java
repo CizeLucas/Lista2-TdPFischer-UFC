@@ -40,7 +40,7 @@ public class Questao10C {
 	    	System.out.println();
 	    }//fecha for da linha
 	    
-
+	    scan.close();
 	}
 
 }
