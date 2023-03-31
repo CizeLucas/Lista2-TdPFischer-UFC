@@ -12,9 +12,11 @@ public class Questao10F {
 	    
 	    for(int l=0; l<numLimit; l++) {
 	    	for(int c=0; c<numLimit; c++) {	
-	    		
-	    		System.out.print(c+" ");
-		    	
+	    		if(l==c || l+c==(numLimit-1)) {
+	    			System.out.print(c+" ");
+	    		} else {
+	    			System.out.print("* ");
+	    		}
 	    	}
 	    	System.out.println();
 	    }	    
