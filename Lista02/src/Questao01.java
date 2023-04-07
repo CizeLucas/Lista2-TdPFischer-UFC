@@ -10,7 +10,6 @@ public class Questao01 {
 			if(numero%20==0) {
 				System.out.println();
 			}
-			
 		}
 	}
 }

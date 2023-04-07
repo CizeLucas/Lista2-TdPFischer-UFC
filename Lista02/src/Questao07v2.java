@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-public class Questao07 {
+public class Questao07v2 {
 
 	public static void main(String[] args) {
 		//Uma implementacao do Crivo de Eratóstenes para encontrar numeros primos
